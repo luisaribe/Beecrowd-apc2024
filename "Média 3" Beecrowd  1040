@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+
+ double a, b, c, d, m, e, n;
+
+  scanf ("%lf" "%lf" "%lf" "%lf", &a, &b, &c, &d);
+
+  m = (2*a + 3*b + 4*c + 1*d)/10;
+
+  if (m >= 7){
+    printf ("Media: %.1lf\nAluno aprovado.\n", m);
+  }else{
+    if (m < 5){
+      printf ("Media: %.1lf\nAluno reprovado.\n", m);
+    }else{
+      if (m <= 6.9 && m >= 5){
+        scanf ("%lf", &e);
+        n = (m + e)/2;
+        if (n >= 5){  
+        printf ("Media: %.1lf\nAluno em exame.\nNota do exame: %.1lf\nAluno aprovado.\nMedia final: %.1lf\n", m, e, n);
+        }else{
+           printf ("Media: %.1lf\nAluno em exame.\nNota do exame: %.1lf\nAluno reprovado.\nMedia final: %.1lf\n", m, e, n);
+        }
+      }
+    }
+  }
+
+  return 0;
+}
