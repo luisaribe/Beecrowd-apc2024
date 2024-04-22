@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+  
+  double d, vf, vg, sg ;
+
+  while (scanf ("%lf %lf %lf", &d, &vf, &vg) != -1) {
+    
+    sg = sqrt(d * d + 144);
+
+    if (vg >= sg * vf / 12){
+      printf ("S\n");
+    }else{
+      printf ("N\n");
+    }
+  }
+  return 0;
+}
