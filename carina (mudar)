@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+
+  int q, i, l, r, j, answer;
+
+  scanf ("%d", &q);
+
+  i = 0;
+  while (i < q){
+    //executar o algoritmo q vezes
+    scanf ("%d %d", &l, &r);
+    answer = 0;
+    j = ceil (sqrt(l));
+    
+      while ( j * j <= r){
+        //printf ("%d x %d\n", j,j);
+        answer = answer + 1;
+        
+        j = j+1;
+      }
+  }   
+      printf ("%d\n", answer);
+      i = i + 1; //aumentar o proprio valor de i
+  
+  return 0;
+}
