@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+
+int cv, ce, cs, fv, fe, fs, cp, fp;
+
+  scanf ("%d %d %d %d %d %d", &cv, &ce, &cs, &fv, &fe, &fs);
+
+  cp = 3 * cv + ce;
+  fp = 3 * fv + fe;
+
+  if (cp > fp){
+    printf ("C\n");
+  }else{
+    if (cp < fp){
+      printf ("F\n");
+    }else{
+      if (cp == fp){
+        if (cs > fs){
+          printf("C\n");
+        }else{
+          if (cs < fs){
+            printf("F\n");
+          }else{
+            printf("=\n");
+          }
+        }
+      }
+    }
+  }
+
+return 0;
+}
