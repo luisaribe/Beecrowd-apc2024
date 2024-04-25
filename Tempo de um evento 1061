@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+
+char diai[5], diaf[5], barra[5];
+int di, hi, mi, si, df, hf, mf, sf, dd, hd, md, sd, ti, tf, t;
+
+ scanf ("%s %d\n", diai, &di);
+ scanf ("%d %s %d %s %d\n", &hi, barra, &mi, barra, &si);
+ scanf ("%s %d\n", diaf, &df);
+ scanf ("%d %s %d %s %d", &hf, barra, &mf, barra, &sf);
+
+  ti = si + mi * 60 + hi * 60 * 60 + di * 24 * 60 * 60;
+  tf = sf + mf * 60 + hf * 60 * 60 + df * 24 * 60 * 60;
+
+  t = tf - ti;
+  
+  dd = t/(24 * 3600);
+  hd = (t - (dd * (24 * 3600)))/ 3600;
+  md = (t - (hd * 3600) - (dd * 24 *3600))/60;
+  sd = (t - (hd * 3600) - (dd * 24 * 3600) - (md * 60));
+
+  printf ("%d dia(s)\n%d hora(s)\n%d minuto(s)\n%d segundo(s)\n", dd, hd, md, sd);
+  
+return 0;
+}
