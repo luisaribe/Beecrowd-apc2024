@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+
+char li, lf;
+int ni, nf,a, b, c, d, e, f, g, h;
+
+  scanf ("%c %d %c %d", &li, &ni, &lf, &nf);
+    
+  a = 1;
+  b = 2;
+  c = 3;
+  d = 4;
+  e = 5;
+  f = 6;
+  g = 7;
+  h = 8;
+
+  if (li - lf == 2 && ni - nf == 1 || li - lf == -2 && ni - nf == 1 || li - lf == 2 && ni - nf == -1 || li - lf == -2 && ni - nf == -1 || li - lf == 1 && ni - nf == 2 || li - lf == -1 && ni - nf == 2 || li - lf == 1 && ni - nf == -2 || li - lf == -1 && ni - nf == -2){
+    printf ("VALIDO\n");
+  }else{
+    printf ("INVALIDO\n");
+  }
+
+return 0;
+}
