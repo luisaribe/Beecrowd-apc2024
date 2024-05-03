@@ -1,0 +1,64 @@
+#include <stdio.h>
+
+ int main() {
+
+ double n, m, j, a, b, c;
+
+ scanf ("%lf %lf %lf", &n, &m, &j);
+
+ if (n >= m && m >= j){
+   a = n;
+   b = m;
+   c = j;
+ }else{
+   if (n >= j && j >= m){
+     a = n;
+     b = j;
+     c = m;
+   }else{
+     if (m >= n && n >= j){
+       a = m;
+       b = n;
+       c = j;
+     }else{
+       if (m >= j && j >= n){
+         a = m;
+         b = j;
+         c = n;
+       }else{
+         if (j >= n && n >= m){
+           a = j;
+           b = n;
+           c = m;
+         }else{
+           a = j;
+           b = m;
+           c = n;
+         }
+       }
+     }
+   }
+ }
+
+   if (a >= b + c){
+     printf ("NAO FORMA TRIANGULO\n");
+   }else{ 
+   if (a * a == b * b + c * c){
+     printf ("TRIANGULO RETANGULO\n");
+   }
+   if (a * a > b * b + c * c){
+      printf ("TRIANGULO OBTUSANGULO\n");
+    }
+   if (a * a < b * b + c * c){
+     printf ("TRIANGULO ACUTANGULO\n");
+   }
+   if ( a == b & a!=c || a == c && a!=b || b == c && b!= a){
+     printf ("TRIANGULO ISOSCELES\n");
+   }else{
+      if (a == b && b == c){
+        printf ("TRIANGULO EQUILATERO\n");
+      }
+   }
+   }
+return 0;
+}
