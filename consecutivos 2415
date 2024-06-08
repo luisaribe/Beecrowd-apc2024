@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+ int main() {
+
+int n, i, anterior, maior_valor, valor_global, a,num, novo_valor;
+
+   scanf ("%d", &n);
+   
+   maior_valor = 0;
+   valor_global = 0;
+   
+   a = n;
+   while (a != 0){ 
+     scanf ("%d", &num);
+   
+     if (num == anterior){
+       maior_valor = maior_valor + 1;
+     }else{
+         maior_valor = 1;
+       }
+       if (maior_valor > valor_global){
+         valor_global = maior_valor;
+       }
+     anterior = num;
+     
+     a--;
+   }
+
+   printf ("%d\n", valor_global);
+  
+return 0;
+
+}
