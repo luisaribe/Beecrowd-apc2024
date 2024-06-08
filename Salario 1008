@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+ int main() {
+
+int num, hr;
+double valor, salario;
+
+   scanf("%d %d %lf", &num, &hr, &valor);
+
+   salario = hr * valor;
+
+   printf ("NUMBER = %d\nSALARY = U$ %.2lf\n", num, salario);
+   
+return 0;
+
+}
