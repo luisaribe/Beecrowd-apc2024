@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+ int main() {
+
+int casas, valor_casa, maior_valor, valor_global;
+   
+   scanf("%d",&casas);
+   maior_valor = 0;
+   valor_global = 0;
+   
+   while(casas != 0){
+     scanf ("%d", &valor_casa);
+     if(maior_valor + valor_casa > valor_casa){
+     maior_valor = maior_valor + valor_casa;
+     }else{
+       maior_valor = valor_casa;
+     }
+     if (maior_valor > valor_global){
+       valor_global = maior_valor;
+     }
+     casas = casas - 1;
+   }
+   printf("%d\n", valor_global);
+   
+return 0;
+
+}
