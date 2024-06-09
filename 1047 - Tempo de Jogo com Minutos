@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+ int main() {
+
+int hr_inicial, min_inicial, hr_final, min_final, inicio, fim, tempo, hr, min;
+
+    scanf ("%d %d %d %d", &hr_inicial, &min_inicial, &hr_final, &min_final);
+
+    if (hr_final > hr_inicial){ 
+
+      inicio = hr_inicial*60 +min_inicial;
+      fim = hr_final*60 + min_final;
+
+       tempo = fim - inicio;
+
+       hr = tempo/60;
+       min = tempo%60;
+    }else{
+        if (hr_final == hr_inicial && min_final > min_inicial){ 
+
+          inicio = hr_inicial*60 +min_inicial;
+          fim = hr_final*60 + min_final;
+
+           tempo = fim - inicio;
+
+           hr = tempo/60;
+           min = tempo%60;
+        }else{ 
+       if (hr_final == hr_inicial && min_inicial == min_final){ 
+       hr = 24;
+       min = 0;
+       }else{
+          inicio = 24*60 - (hr_inicial*60 +min_inicial);
+          fim = hr_final*60 + min_final;
+
+           tempo = fim + inicio;
+
+           hr = tempo/60;
+           min = tempo%60;
+       }}
+    }
+
+    printf("O JOGO DUROU %d HORA(S) E %d MINUTO(S)\n", hr, min);
+   
+return 0;
+
+}
