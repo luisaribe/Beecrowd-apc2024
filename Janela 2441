@@ -1,0 +1,70 @@
+#include <stdio.h>
+
+int main() {
+    int f1, f2, f3, t1, t2, t3, area_total, area_aberta, area_folha,n1, n2, n3, area_coberta;
+    scanf("%d %d %d", &f1, &f2, &f3);
+
+   n1 = f1;;
+   n2 = f2;
+   n3 = f3;
+
+    area_total = 100 * 600;
+    area_folha = 100 * 200;
+    area_coberta = 0;
+
+   if (n1 >= n2 && n2 >= n3){
+      f1 = n3;
+      f2 = n2;
+      f3 = n1;
+   }else{
+      if (n1 >= n3 && n3 >= n2){
+         f1 = n2;
+         f2 = n3;
+         f3 = n1;
+      }else{
+         if (n2 >= n1 && n1 >= n3){
+            f1 = n3;
+            f2 = n1;
+            f3 = n2;
+         }else{
+            if (n2 >= n3 && n3 >= n1){
+               f1 = n1;
+               f2 = n3;
+               f3 = n2;
+            }else{
+               if (n3 >= n1 && n1 >= n2){
+                  f1 = n2;
+                  f2 = n1;
+                  f3 = n3;
+               }
+            }
+         }
+      }
+   }
+
+    t1 = f1 + 200;
+    t2 = f2 + 200;
+    t3 = f3 + 200;
+
+   
+      if (f2<=t1&&f3<=t2){
+         area_coberta = 100 * (t3 - f1);
+      }else{
+         if (f2<=t1&&f3>=t2){
+            area_coberta = 100 * ((t2 - f1)+(t3-f3));
+         }else{
+            if (f2>=t1&&f3<=t2){
+               area_coberta = 100 * ((t1-f1)+(t3-f2));
+            }else{
+               area_coberta = 60000;
+            }
+         }
+      }
+   
+
+    area_aberta = area_total - area_coberta;
+   
+    printf("%d\n", area_aberta);
+
+    return 0;
+}
