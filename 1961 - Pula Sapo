@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main() {
+
+   int altura, canos, i, n, tamanho, ultimo;
+
+   scanf("%d %d", &altura, &canos);
+
+   n = 0;
+   scanf("%d", &ultimo);
+
+   for (i = 1; i<=(canos-1); i++){
+      scanf("%d", &tamanho);
+      
+      if(tamanho>=ultimo && tamanho - ultimo <=altura){
+      
+      }else{
+         if (tamanho<=ultimo && ultimo - tamanho <=altura){
+         
+         }else{
+            n++;
+         }
+      }
+
+        ultimo = tamanho; 
+   }
+      if (n == 0){
+         printf("YOU WIN\n");
+      }else{
+         printf("GAME OVER\n");
+      }
+   
+    return 0;
+}
