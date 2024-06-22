@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+ int main() {
+
+int n, i, m, bolo, natan, samuel;
+
+   natan = 0;
+   samuel = 0;
+
+   scanf("%d %d", &n, &m);
+
+   for (i = 1; i <= 2 * n ; i++){
+     scanf("%d", &bolo);
+     if (i <= n && bolo == 1){
+       natan++;
+     }else{
+       if (i> n && bolo == 1){
+         samuel++;
+       }
+     }
+   }
+
+   if (natan == m){
+     printf("Tudo certo.\n");
+   }else{
+     if (samuel == m){
+       printf ("Pegou de Samuel.\n");
+     }else{
+       printf("Pegou de um estranho.\n");
+     }
+   }
+   
+   
+return 0;
+
+}
