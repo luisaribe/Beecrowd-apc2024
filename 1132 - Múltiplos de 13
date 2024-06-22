@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+ int main() {
+
+int n, m, i, a, b, s;
+
+   s = 0;
+
+   scanf("%d %d", &m, &n);
+
+   if (m > n){
+     a = m;
+     b = n;
+   }else{
+     a = n;
+     b = m;
+   }
+
+   for (i = b; i <= a; i++){
+     if (i%13!=0){
+       s = s + i;
+     }
+   }
+
+   printf("%d\n", s);
+   
+return 0;
+
+}
