@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+ int main() {
+
+int n, i, soma, t, m;
+
+   soma = 0;
+
+   scanf("%d", &n);
+
+   for (i = 1; i <= n ; i++){
+     scanf("%d", &m);
+     for (t = 1; t < m; t++){
+       if (m%t == 0){
+         soma = soma + t;
+       }
+     }
+     if (soma == m){
+       printf("%d eh perfeito\n", m);
+     }else{
+       printf("%d nao eh perfeito\n", m);
+     }
+     soma = 0;
+   }
+
+   
+   
+return 0;
+
+}
