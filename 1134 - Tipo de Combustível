@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+ int main() {
+
+int n, i, alcool, gasolina, diesel;
+
+   alcool = 0;
+   gasolina = 0;
+   diesel = 0;
+
+   for (i = 1; ; i++){
+     scanf("%d", &n);
+     if (n == 4){
+       break;
+     }
+     if (n == 1){
+       alcool++;
+     }else{
+       if (n == 2){
+         gasolina++;
+       }else{
+         if (n == 3){
+           diesel++;
+         }
+       }
+     }
+   }
+
+   printf("MUITO OBRIGADO\nAlcool: %d\nGasolina: %d\nDiesel: %d\n", alcool, gasolina, diesel);
+   
+return 0;
+
+}
