@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+ int main() {
+
+int i, validas;
+   double n, soma, media;
+
+   validas = 0;
+   soma = 0;
+
+   for (i=1; ; i++){
+     scanf("%lf", &n);
+     if (n >= 0 && n <= 10){
+       validas++;
+       soma = soma + n;
+       if (validas==2){
+         media = (soma)/2;
+         printf("media = %.2lf\n", media);
+         break;
+       }
+     }else{
+       printf("nota invalida\n");
+     }
+   }
+   
+return 0;
+
+}
