@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+ int main() {
+
+int n, i, t, m;
+
+   m = 0;
+
+   scanf("%d", &n);
+
+   for (i = 1; i <= n ; i++){
+     for (t = 1; t <= 3; t++){
+        m++;
+       printf("%d ", m);
+     }
+     m++;
+     printf("PUM\n");
+   }
+
+   
+   
+return 0;
+
+}
