@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+ int main() {
+
+double n, i, ratos, coelhos, sapos, pratos, pcoelhos, psapos, cobaias, q;
+   char t[1];
+
+   ratos = 0;
+   coelhos = 0;
+   ratos = 0;
+   cobaias = 0;
+
+   scanf ("%lf", &n);
+
+   for (i = 1; i <= n; i++){
+     scanf("%lf %s", &q, &t[0]);
+     cobaias = cobaias + q;
+     if (t[0] == 'R'){
+       ratos = ratos + q;
+     }else{
+       if (t[0] == 'C'){
+         coelhos = coelhos + q;
+       }else{
+         sapos = sapos + q;
+       }
+     }
+   }
+
+   pratos = (ratos / cobaias) * 100;
+   psapos = (sapos / cobaias) * 100;
+   pcoelhos = (coelhos / cobaias) * 100;
+
+     printf("Total: %.0lf cobaias\nTotal de coelhos: %.0lf\nTotal de ratos: %.0lf\nTotal de sapos: %.0lf\nPercentual de coelhos: %.2lf %\nPercentual de ratos: %.2lf %\nPercentual de sapos: %.2lf %\n", cobaias, coelhos, ratos, sapos, pcoelhos, pratos, psapos);
+   
+return 0;
+
+}
