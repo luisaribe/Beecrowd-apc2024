@@ -1,0 +1,39 @@
+#include<stdio.h>
+#define MAX_N 10000
+
+int main(){
+  
+    int i,ascii, ascii2, m, j;
+  
+    char c[MAX_N+1], n[MAX_N+1];
+
+  scanf("%s",c);
+
+      for (i = 1; ;i++){
+        while(c[i] != '\n'){
+        ascii = c[i];
+        if (i%2!=0 && ascii >= 97 && ascii <= 122 ){
+          ascii2 = ascii - 32;
+          ascii2 = n[i];
+          printf("%s", n);
+        }else{
+          if (i%2==0 && ascii >= 97 && ascii <= 122 ){
+            printf("%s", c);
+          }else{
+            if (i%2==0 && ascii >= 65 && ascii <= 90){
+              ascii2 = ascii + 32;
+              ascii2 = n[i];
+              printf("%s", n);
+            }else{
+               printf("%s", c);
+            }
+          }
+        }
+      }
+    
+    scanf("%s", c);
+  }
+  
+return 0;
+
+}
