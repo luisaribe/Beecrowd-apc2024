@@ -1,0 +1,42 @@
+#include<stdio.h>
+#define MAX_N 1000
+
+int main(){
+
+int total, i, arr[MAX_N], n, vetor, m, quantia, r, b, c;
+
+vetor = 0;
+m = 0;
+quantia = 0;
+
+scanf("%d %d", &total, &c);
+
+for (b = 1; b<=c; b++){
+
+scanf("%d", &n);
+
+arr[vetor] = n;
+
+  
+for (i = 0; i < vetor; i++){
+if (arr[i] == n){
+m++;
+}
+}
+
+  if (m == 0){
+  quantia++;
+  }
+
+  m = 0;
+  vetor++;
+
+}
+
+r = total - quantia;
+
+printf("%d\n", r);
+
+return 0;
+
+}
