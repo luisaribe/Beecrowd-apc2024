@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include <math.h>
+#define MAX_N 1000
+
+int main(){
+
+long long int i, n, x, fib[MAX_N], m, b, a, c;
+
+scanf("%lld", &n);
+
+  for(i = 0; i < n; i++){
+    
+    scanf("%lld", &x);
+
+    m = 0;
+
+    fib[0] = 0;
+    fib[1] = 1;
+
+    for(b = 2; b <= x; b++){
+      a = b - 1;
+      c = b - 2;
+      fib[b] = fib[a] + fib[c];
+    }
+    
+    m = fib[x];
+    printf("Fib(%lld) = %lld\n", x, m);
+  }
+  
+return 0;
+
+}
