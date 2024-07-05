@@ -1,0 +1,27 @@
+#include <stdio.h>
+#define MAX_N 10001
+
+int main() {
+
+   int n, i, v[MAX_N], a, caiu;
+
+   scanf("%d", &n);
+
+   caiu = 0;
+
+   for(i = 0; i < n; i++){ 
+      
+      scanf("%d", &v[i]);
+
+      a = i - 1;
+
+      if(i > 0 && v[i] < v[a] && caiu == 0){
+         caiu = i + 1;
+      }
+      
+   }
+
+   printf("%d\n", caiu);
+   
+    return 0;
+}
