@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main(void) {
+  long long int abertura, n, i, fotons, m;
+
+  m = 0;
+
+  scanf("%lld", &abertura);
+  scanf("%lld", &n);
+
+  for(i = 0; i < n; i++){
+    scanf("%lld", &fotons);
+
+    if(fotons * abertura >= 40000000){
+      m++;
+    }
+  }
+
+  printf("%lld\n", m);
+  
+  return 0;
+}
