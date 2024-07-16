@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(void) {
+
+  int n, i, total;
+  char a[5];
+
+  scanf("%d", &n);
+
+  while(n > 0){
+
+    scanf("%s", a);
+
+    if(a[1] >= 'A' && a[1] <= 'Z' && a[0]!=a[2]){
+      total = a[2] - a[0];
+    }else{
+      if(a[1] >= 'a' && a[1] <= 'z' && a[0]!=a[2]){ 
+        total = a[2] + a[0]- 96;
+      }else{
+        total = (a[2]-48) * (a[0]-48);
+      }
+    }  
+
+    printf("%d\n", total);
+    total=0;
+    n--;
+  }
+  return 0;
+}
