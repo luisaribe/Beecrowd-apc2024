@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(void) {
+
+  int n, i, t, fail, j;
+  char placa[101];
+
+  scanf("%d", &n);
+
+  for(i=0; i<n; i++){
+    scanf("%s", placa);
+    getchar();
+
+    t = strlen(placa);
+
+    fail=0;
+    if(t > 8){
+      fail++;
+    }
+    if(placa[3] != 45){
+      fail++;
+    }
+    for(j=0; j<3; j++){
+      if(placa[j]<65 || placa[j]>90){
+        fail++;
+      }
+    }
+
+    for(j=4; j<8; j++){
+      if(placa[j]<48 || placa[j]>57){
+        fail++;
+      }
+    }
+
+    if(fail == 0){
+      if(placa[7] == 50 || placa[7] == 49){
+        printf("MONDAY\n");
+      }else{
+        if(placa[7] == 51 || placa[7] == 52){
+          printf("TUESDAY\n");
+        }else{
+          if(placa[7] == 53 || placa[7] == 54){
+            printf("WEDNESDAY\n");
+          }else{
+            if(placa[7] == 55 || placa[7] == 56){
+              printf("THURSDAY\n");
+            }else{
+              if(placa[7] == 57 || placa[7] == 48){
+                printf("FRIDAY\n");
+              }
+            }
+          }
+        }
+      }
+    }else{
+      printf("FAILURE\n");
+    }
+    
+  }
+  
+  return 0;
+}
