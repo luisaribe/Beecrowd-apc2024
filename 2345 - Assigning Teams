@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main(void) {
+  
+  int n, arr[4], i, m;
+  
+  for(i = 0; i<4; i++){
+    scanf("%d", &arr[i]);
+  }
+
+  m= arr[0] + arr[3];
+  n= arr[1] + arr[2];
+
+  if(m>n){
+    printf("%d\n", m-n);
+  }else{
+    printf("%d\n", n-m);
+  }
+  
+  return 0;
+}
