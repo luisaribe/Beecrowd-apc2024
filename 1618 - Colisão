@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main(void) {
+
+  int i, j, l, m[5][2], n, x, nao;
+
+  scanf("%d", &n);
+  
+  for(i=0; i<n; i++){
+
+    nao=0;
+   for(j=0; j<5; j++){
+     for(l=0; l<2; l++){
+       scanf("%d", &x);
+       m[j][l]=x;
+     }
+   }
+
+    
+        if(m[4][0]<m[0][0]){
+          nao++;
+        }else{
+          if(m[4][0]>m[2][0]){
+            nao++;
+          }else{
+            if(m[4][1]<m[1][1]){
+              nao++;
+            }else{
+              if(m[4][1]>m[2][1]){
+                nao++;
+              }
+            }
+          }
+        }
+
+    if(nao==0){
+      printf("1\n");
+    }else{
+      printf("0\n");
+    }
+  }
+  
+  return 0;
+}
