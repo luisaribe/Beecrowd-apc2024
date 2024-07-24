@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main(void) {
+
+  double n, i, a, b, s=0;
+
+  scanf("%lf", &n);
+
+  for(i=0; i<n; i++){
+    scanf("%lf %lf", &a, &b);
+    s = s+a/b;
+  }
+
+  if(s<=1.0){
+    printf("OK\n");
+  }else{
+    printf("FAIL\n");
+  }
+  
+  return 0;
+}
