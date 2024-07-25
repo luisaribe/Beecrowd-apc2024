@@ -1,0 +1,51 @@
+#include <stdio.h>
+#define MAX_N 1000
+
+int main(void) {
+
+  int i, j, m[MAX_N][MAX_N], x, y, r, i1=0,j1=0, i2,j2, aux;
+
+  while(scanf("%d %d", &x, &y)!=EOF){ 
+
+    i1=0;
+    j1=0;
+  for(i=0; i<x; i++){
+    for(j=0; j<y; j++){
+      m[i][j]=0;
+      scanf("%d", &m[i][j]);
+      
+      if(m[i][j]!=0&&i>i1){ 
+          aux=i1;
+          i1=i;
+          i2=aux;
+       
+      }else{
+        if(m[i][j]!=0){ 
+          i2=i;
+       
+        }
+      }
+        
+          if(m[i][j]!=0&&j>j1){ 
+            aux=j1;
+            j1=j;
+            j2=aux;
+            
+          }else{
+            if(m[i][j]!=0){ 
+              j2=j;
+          
+            }
+          }
+        
+      
+    }
+  }
+
+  r = (i1-i2)+(j1-j2);
+
+  printf("%d\n", r);
+  }
+  
+  return 0;
+}
