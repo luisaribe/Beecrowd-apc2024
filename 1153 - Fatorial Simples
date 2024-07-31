@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int fatorial (int n){
+  int ans, m;
+  m=n;
+  if(n == 1 || n == 0){
+    return 1;
+  }else{
+    ans = n * fatorial(n-1);
+    return ans;
+  }
+}
+
+int main(void) {
+
+  int n, f;
+  scanf("%d", &n);
+
+  f = fatorial(n);
+
+  printf("%d\n", f);
+
+  return 0;
+}
