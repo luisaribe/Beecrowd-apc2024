@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main(void) {
+
+  int n,a,b, hora, min, r;
+  char l;
+
+  while(scanf("%d %c %d", &hora, &l, &min) != EOF){
+    if(hora < 7){
+      r = 0;
+    }else{
+      r = (hora - 7)*60 + min;
+    }
+
+    printf("Atraso maximo: %d\n", r);
+  }
+  return 0;
+}
