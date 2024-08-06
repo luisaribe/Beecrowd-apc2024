@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <string.h>
+
+struct churras {
+   char carne[51];
+   int validade;
+};
+
+typedef struct churras Churras;
+
+void trocar(Churras *a, Churras *b) {
+    Churras aux = *a;
+    *a = *b;
+    *b = aux;
+}
+
+void bubbleSort(Churras carnes[51], int n){
+      for (int i = 0; i < n - 1; i++) {
+          for (int j = 0; j < n - i - 1; j++) {
+              if (carnes[j].validade > carnes[j + 1].validade) {
+                  trocar(&carnes[j], &carnes[j + 1]);
+              }
+          }
+      }
+  
+}
+
+void imprimir(Churras carne[51], int n) {
+    for (int i = 0; i < n; i++) {
+      if(i<n-1)
+        printf("%s ", carne[i].carne);
+      else{
+        printf("%s\n", carne[i].carne);
+      }
+    }
+}
+
+int main(void) {
+  int n, val;
+  Churras carnes[51];
+
+  while(scanf("%d", &n) != EOF){
+    for(int i=0; i<n; i++){
+      getchar();
+      scanf("%s", carnes[i].carne);
+      scanf("%d", &carnes[i].validade);
+    }
+
+    bubbleSort(carnes, n);
+
+    imprimir(carnes, n);
+  }
+
+  return 0;
+}
