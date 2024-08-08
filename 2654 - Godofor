@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_CANDIDATOS 500
+#define TAM_NOME 101
+
+struct candidato{
+   char nome[TAM_NOME]; //4 menor
+   int poder; //1
+   int matou; //2
+   int morreu; //3
+};
+
+typedef struct candidato Candidato;
+
+void copiar(char destino[TAM_NOME], char fonte[MAX_CANDIDATOS]){
+    int k;
+    for(k = 0; fonte[k] != '\0'; k++){
+        destino[k] = fonte[k];
+    }
+    destino[k] = '\0';
+}
+
+  void troca(Candidato deus[MAX_CANDIDATOS], int i, int j){
+  int aux;
+  char outro[TAM_NOME];
+
+  aux = deus[i].poder;
+  deus[i].poder = deus[j].poder;
+  deus[j].poder = aux;
+
+  aux = deus[i].matou;
+  deus[i].matou = deus[j].matou;
+  deus[j].matou = aux;
+
+  aux = deus[i].morreu;
+  deus[i].morreu = deus[j].morreu;
+  deus[j].morreu = aux;
+
+
+  copiar(outro,deus[i].nome);
+  copiar(deus[i].nome,deus[j].nome);
+  copiar(deus[j].nome,outro);
+}
+
+void bubbleSort(Candidato deus[MAX_CANDIDATOS], int n){
+  for(int i=0; i<n; i++){
+    for(int j=i+1; j<n; j++){
+      if(deus[i].poder < deus[j].poder){
+        troca(deus,i,j);
+      }
+
+      if(deus[i].poder == deus[j].poder){
+        if(deus[i].matou<deus[j].matou){
+          troca(deus,i,j);
+        }else{
+          if(deus[i].matou == deus[j].matou){
+            if(deus[i].morreu>deus[j].morreu){
+              troca(deus,i,j);
+            }else{
+              if(deus[i].morreu == deus[j].morreu){
+                if(strcmp(deus[i].nome, deus[j].nome) > 0){
+                  troca(deus,i,j);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+int main(void) {
+
+  int n;
+  Candidato deus[MAX_CANDIDATOS];
+
+  scanf("%d", &n);
+
+  for(int l=0; l<n; l++){
+    
+    scanf("%s", deus[l].nome);
+    getchar();
+    scanf("%d %d %d", &deus[l].poder, &deus[l].matou, &deus[l].morreu);
+  }
+
+  bubbleSort(deus, n);
+
+  printf("%s\n", deus[0].nome);
+ 
+  return 0;
+}
