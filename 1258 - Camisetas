@@ -1,0 +1,107 @@
+#include <stdio.h>
+#include <string.h>
+#define MAX 500
+#define NOME 100
+
+struct camisa {
+   char nome [NOME+1];
+   char cor [10];
+   char tam [2];
+};
+
+typedef struct camisa Camisa;
+
+void copiar_string(char destino[NOME+1], char fonte[NOME+1]){
+    int i;
+    for(i = 0; fonte[i] != '\0'; i++){
+        destino[i] = fonte[i];
+    }
+    destino[i] = '\0';
+}
+
+void troca(Camisa camisa[MAX], int i, int j){
+    char outro[NOME];
+
+    copiar_string(outro,camisa[i].cor);
+    copiar_string(camisa[i].cor,camisa[j].cor);
+    copiar_string(camisa[j].cor,outro);
+
+    copiar_string(outro,camisa[i].tam);
+    copiar_string(camisa[i].tam,camisa[j].tam);
+    copiar_string(camisa[j].tam,outro);
+
+    copiar_string(outro,camisa[i].nome);
+    copiar_string(camisa[i].nome,camisa[j].nome);
+    copiar_string(camisa[j].nome,outro);
+}
+
+
+void bubbleSort(Camisa camisa[MAX], int n){
+      for (int i = 0; i < n - 1; i++) {
+          for (int j = 0; j < n - i - 1; j++) {
+              if (strcmp(camisa[j].cor, "vermelho") == 0 && strcmp(camisa[j+1].cor, "branco") == 0) {
+                  troca(camisa,j,j + 1);
+              }else{
+                  if(strcmp(camisa[j].cor, camisa[j+1].cor) == 0){ 
+                if(strcmp(camisa[j].tam, "G") == 0 && strcmp(camisa[j+1].tam, "M") == 0){
+                    troca(camisa,j,j + 1);
+                }else{
+                  if(strcmp(camisa[j].tam, "G") == 0 && strcmp(camisa[j+1].tam, "P") == 0){
+                      troca(camisa,j,j + 1);
+                  }else{
+                    if(strcmp(camisa[j].tam, "M") == 0 && strcmp(camisa[j+1].tam, "P")==0){
+                        troca(camisa,j,j + 1);
+                    }else{
+                        if(strcmp(camisa[j].tam, camisa[j+1].tam) == 0){ 
+                      
+        if(strcmp(camisa[j].nome,camisa[j+1].nome) > 0){
+            troca(camisa,j,j + 1);
+                          
+                        } 
+                      
+                    }
+                    }
+                  }
+                }
+              }
+              }
+          }
+      }
+
+}
+
+void imprimir(Camisa camisa[MAX], int n){
+  for(int j=0; j<n; j++){
+    printf("%s %s %s\n", camisa[j].cor, camisa[j].tam, camisa[j].nome);
+    
+  }
+}
+
+int main(void) {
+  int n;
+  char nome[NOME], cor[10], tam[2];
+  Camisa camisa[MAX];
+
+  scanf("%d", &n);
+  while(n != 0){
+
+    for(int i=0; i<n; i++){
+      getchar();
+      scanf("%[^\n]s", camisa[i].nome);
+      getchar();
+      scanf("%s", camisa[i].cor);
+      getchar();
+      scanf("%s", camisa[i].tam);
+    }
+
+    bubbleSort(camisa, n);
+      
+    imprimir(camisa, n);
+    
+    scanf("%d", &n);
+      if(n!=0){
+          printf("\n");
+      }
+  }
+  return 0;
+}
