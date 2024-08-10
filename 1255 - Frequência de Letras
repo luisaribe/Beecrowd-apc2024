@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <string.h>
+#define MAX 500
+
+void comparar(char frase[MAX]){
+  int tam = strlen(frase);
+  int alfabeto[26] = {0};
+  int maior=0, p=0;
+  int maiores[26] = {0};
+  for(int i=0; i<tam; i++){
+    if(frase[i] >= 'a' && frase[i] <= 'z'){
+      alfabeto[frase[i] - 'a']++;
+    }else{
+      if(frase[i] >= 'A' && frase[i] <= 'Z'){
+        alfabeto[frase[i] - 'A']++;
+      }
+    }
+  }
+
+  for(int j=0; j<26; j++){
+    if(alfabeto[j] > maior){
+      p=0;
+      memset(maiores, 0, sizeof(maiores));
+      maior=alfabeto[j];
+      maiores[p] = j;
+      p++;
+    }else{
+      if(alfabeto[j] == maior){
+        maiores[p] = j;
+        p++;
+      }
+    }
+  }
+
+  for(int b=0; b<p; b++){
+    if(b==p-1)
+      printf("%c\n", maiores[b]+'a');
+  else{ 
+    printf("%c", maiores[b]+'a');
+  }
+  }
+
+}
+
+int main(void) {
+  int n;
+  char frase[MAX];
+
+  scanf("%d", &n);
+
+  for(int i=0; i<n; i++){
+
+    getchar();
+    scanf("%[^\n]s", frase);
+
+    comparar(frase);
+    
+  }
+  
+  return 0;
+}
