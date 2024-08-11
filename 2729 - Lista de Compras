@@ -1,0 +1,100 @@
+#include <stdio.h>
+#include <string.h>
+#define MAX 20001
+
+void copiar_string(char destino[MAX], char fonte[MAX]){
+    int i;
+    for(i = 0; fonte[i] != '\0'; i++){
+        destino[i] = fonte[i];
+    }
+    destino[i] = '\0';
+}
+
+void troca(char item1[MAX], char item2[MAX]){
+    char outro[MAX];
+
+    copiar_string(outro,item1);
+    copiar_string(item1,item2);
+    copiar_string(item2,outro);
+}
+
+
+void lista(char frase[MAX]){
+  char item[1000][21];
+  char lista[1000][21];
+
+  memset(item, '\0', 1000 * 21 * sizeof(char));
+  memset(lista, '\0', 1000 * 21 * sizeof(char));
+  int j=0, k=0;
+  for(int i=0; i<strlen(frase); i++){
+    if(frase[i] != ' '){
+      item[j][k] = frase[i];
+     
+      k++;
+    }else{
+      if(frase[i] == ' '){
+        item[j][k] = '\0';
+        j++;
+        k=0;
+      
+      }
+    }
+  }
+  j++;
+
+
+  
+
+  int p=0;
+  for(int l=0; l<j; l++){
+    for(int b=l+1; b<j; b++){
+      if(strcmp(item[l], item[b])==0){
+        break;
+      }else{
+        if(b==j-1){ 
+        copiar_string(lista[p], item[l]);
+      
+        p++;
+        }
+      }
+      }
+    if(l==j-1){ 
+    copiar_string(lista[p], item[l]);
+    }
+    }
+
+  for(int t=0;t<=p;t++){
+    for(int y=t+1;y<=p;y++){
+      if(strcmp(lista[t],lista[y])>0){
+        troca(lista[t], lista[y]);
+      }
+    }
+  }
+
+  for(int x=0; x<=p; x++){
+    if(x==p){
+      printf("%s\n", lista[x]);
+    }else{ 
+    printf("%s ", lista[x]);
+    }
+  }
+}
+
+int main(void) {
+  int n;
+  char frase[MAX];
+
+  scanf("%d", &n);
+  
+  while(n>0){
+
+    getchar();
+    scanf("%[^\n]s", frase);
+
+    lista(frase);
+  
+    n--;
+  }
+  
+  return 0;
+}
