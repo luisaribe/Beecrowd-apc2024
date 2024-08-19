@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <string.h>
+#define MAX 10001
+
+void imprimir(char alfabeto[101]){
+  int count=0;
+  for(int i=0; i<strlen(alfabeto); i++){
+    if(alfabeto[i]<91){
+      alfabeto[i] += 32;
+    }
+    if(alfabeto[i]== alfabeto[i-1]&&(alfabeto[i]==0||alfabeto[i] != alfabeto[i-2])){
+      count++;
+    }
+  }
+
+  printf("%d\n", count);
+}
+
+void zerar(char frase[MAX], char alfabeto[101]){
+  for(int i=0; i<MAX; i++){
+    frase[i] = '\0';
+  }
+
+  for(int j=0; j<101; j++){
+    alfabeto[j] = '\0';
+  }
+}
+
+int main(void) {
+
+  char frase[MAX], iniciais[101];
+  int alfabeto[26], p=0;
+  
+   while(scanf("%[^\n]s", frase) != EOF){
+     getchar();
+     p=0;
+     for(int i=0; i<strlen(frase); i++){
+       if(i==0||frase[i-1]==' '){
+         iniciais[p] = frase[i];
+         p++;
+       }
+     }
+
+     imprimir(iniciais);
+     zerar(frase, iniciais);
+   }
+  return 0;
+}
