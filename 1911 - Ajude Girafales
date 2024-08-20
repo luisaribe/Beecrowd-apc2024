@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include <string.h>
+
+struct aluno {
+  char nome[21];
+  char assinatura[21];
+};
+
+typedef struct aluno Aluno;
+
+int comparar(Aluno chamada, char assinatura[21]){
+  int tam = strlen(chamada.assinatura);
+  int dif=0;
+  for(int i=0; i<tam; i++){
+    if(chamada.assinatura[i] != assinatura[i]){
+      dif++;
+    }
+  }
+
+  if(dif>=2){
+    //printf("return 1 %s\n", assinatura);
+    return 1;
+  }else{
+    //printf("return 0 %s\n", assinatura);
+    return 0;
+  }
+}
+
+int main(void) {
+  Aluno chamada[100];
+  int i, n, p, quantia=0, dif=0, r, f;
+  char nome[21], assinatura[21];
+
+  scanf("%d", &n);
+  f=n;
+  while(f >0){ 
+    dif=0;
+  while(n>0){
+    getchar();
+    scanf("%s %s", nome, assinatura);
+
+    strcpy(chamada[quantia].nome, nome);
+    strcpy(chamada[quantia].assinatura, assinatura);
+    quantia++;
+
+    n--;
+  }
+  scanf("%d", &p);
+  while(p > 0){
+    
+    getchar();
+    scanf("%s %s", nome, assinatura);
+
+    for(i=0; i<quantia; i++){
+      if(strcmp(nome, chamada[i].nome)==0){
+        r = comparar(chamada[i], assinatura);
+        dif= dif+r;
+        break;
+      }
+    }
+
+    p--;
+  }
+    printf("%d\n", dif);
+    scanf("%d", &n);
+    f=n;
+  }
+  return 0;
+}
