@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main(void) {
+  int campo[100][100], i, j, linhas, colunas, maior=0, soma=0, p, l;
+
+  scanf("%d %d", &linhas, &colunas); //scarfield
+  
+  for(i=0; i<linhas; i++){
+    for(j=0; j<colunas; j++){
+      scanf("%d", &campo[i][j]);
+      soma += campo[i][j];
+    }
+    if(soma>maior){
+      maior = soma;
+    }
+    soma=0;
+  }
+
+  soma=0;
+  for(l=0; l<colunas; l++){
+    for(p=0; p<linhas; p++){
+      soma += campo[p][l];
+    }
+    if(soma>maior){
+      maior = soma;
+    }
+    soma=0;
+  }
+
+  printf("%d\n", maior);
+  
+  return 0;
+}
