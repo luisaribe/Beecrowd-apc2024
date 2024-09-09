@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <string.h>
+#define MAX 1001
+
+struct contagem {
+    int quantia;
+    int ascii;
+};
+
+typedef struct contagem Contagem;
+
+void zerar_struct(int quantia, Contagem contagens[MAX]){
+    for(int i=0; i<quantia; i++){
+      contagens[i].quantia = 0;  
+      contagens[i].ascii = 0;
+    }
+}
+
+void imprimir(int maior, Contagem contagens[MAX]){
+    for(int i=0; i<maior; i++){
+        if(contagens[i].quantia > 0){
+            printf("%d %d\n", contagens[i].ascii, contagens[i].quantia);
+            
+        }
+    }
+}
+
+void ordenar(int maior, Contagem contagens[MAX]){
+    Contagem aux;
+    for(int i=0; i<maior; i++){
+        for(int j=i+1; j<maior; j++){
+            if(contagens[i].quantia > contagens[j].quantia){
+                aux = contagens[i];
+                contagens[i] = contagens[j];
+                contagens[j] = aux;
+            }else{
+                if(contagens[i].quantia == contagens[j].quantia && contagens[i].ascii < contagens[j].ascii){
+                    aux = contagens[i];
+                    contagens[i] = contagens[j];
+                    contagens[j] = aux;
+                }
+            }
+        }
+    }
+}
+
+void zerar_str (int tam, char str[MAX]){
+    for(int i=0; i<tam; i++){
+        str[i] = '\n';
+    }
+}
+
+int main (){ 
+    char str[MAX];
+    int tam, maior=0, p=0;
+    Contagem contagens[MAX];
+
+    while(scanf("%s", str) != EOF && getchar()!=EOF){
+        if(p!=0){
+            printf("\n");
+        }
+        tam = strlen(str);
+        for(int i=0; i<tam; i++){
+            contagens[str[i]].quantia++;
+            contagens[str[i]].ascii = str[i];
+            if(str[i] > maior){
+                maior = str[i]+1;
+            }
+        }
+
+        ordenar(maior, contagens);
+        imprimir(maior, contagens);
+        zerar_struct(maior, contagens);
+        zerar_str(tam, str);
+        p++;
+    }
+
+    return 0;
+}
